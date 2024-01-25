@@ -1,23 +1,30 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
+    background-color: #f0f0f0; /* Aggiunto uno sfondo grigio per visualizzare meglio la barra di ricerca */
 }
 
-.container {
+nav {
     text-align: center;
 }
 
-.buttons {
-    margin-top: 20px;
+nav input[type="text"] {
+    padding: 20px; /* Aumentato il padding per ingrandire ulteriormente */
+    margin: 10px;
+    border: 1px solid black; /* Aggiunto il bordo nero */
+    border-radius: 5px;
+    font-size: 19px; /* Aumentato il font-size */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 20%;
+nav a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }

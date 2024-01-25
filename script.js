@@ -1,11 +1,11 @@
-function moveButton(buttonId) {
-    if (buttonId === 'noButton') {
-        var button = document.getElementById(buttonId);
-        var newX = Math.random() * (window.innerWidth - button.clientWidth);
-        var newY = Math.random() * (window.innerHeight - button.clientHeight);
-
-        button.style.position = "absolute";
-        button.style.left = newX + "px";
-        button.style.top = newY + "px";
-    }
+function cerca() {
+    var ricerca = document.getElementById("searchInput").value;
+    window.location.href = ricerca + ".html";
 }
+
+// Aggiungi questa funzione per gestire l'invio del modulo quando si preme "Invio"
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        cerca();
+    }
+});
