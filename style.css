@@ -1,3 +1,8 @@
+@font-face {
+    font-family: pixel;
+    src: url(fonts/PressStart2P-Regular.ttf);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0; /* Aggiunto uno sfondo grigio per visualizzare meglio la barra di ricerca */
+    background-color: #ffa7a8; /* Aggiunto uno sfondo grigio per visualizzare meglio la barra di ricerca */
 }
 
 nav {
@@ -14,11 +19,14 @@ nav {
 }
 
 nav input[type="text"] {
-    padding: 20px; /* Aumentato il padding per ingrandire ulteriormente */
+    background-color: #ffa7a8;
+    padding: 25px; /* Aumentato il padding per ingrandire ulteriormente */
     margin: 10px;
-    border: 1px solid black; /* Aggiunto il bordo nero */
-    border-radius: 5px;
-    font-size: 19px; /* Aumentato il font-size */
+    border: 5px solid white; /* Aggiunto il bordo nero */
+    border-radius: 0px;
+    font-size: 20px; /* Aumentato il font-size */
+    color: white;
+    font-family: pixel;
 }
 
 nav a {
