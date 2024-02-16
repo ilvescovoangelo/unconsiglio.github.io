@@ -1,0 +1,20 @@
+@font-face {
+    font-family: pixel;
+    src: url(fonts/PressStart2P-Regular.ttf);
+}
+
+body {
+    font-family: pixel;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    background-color: #ffa7a8; /* Aggiunto uno sfondo grigio per visualizzare meglio la barra di ricerca */
+}
+a {
+    color: white;
+    text-decoration: none;
+}
