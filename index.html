@@ -6,8 +6,12 @@
     <title>CONSERVATORIO</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico"/>
+   
 </head>
-<body>
+<body> 
+    <iframe hidden src="audio/silence.mp3" allow="autoplay" id="audio"></iframe>
+    <audio id="player" autoplay controls hidden volume="0.5"><source src="audio/bach.mp3" type="audio/mp3"></audio>
+    <img src="img/gif.gif" alt="GIF" class="gif-sopra-navbar">
     <nav>
         <input type="text" id="searchInput" placeholder="LA PAROLINA MAGICA???">
     </nav>

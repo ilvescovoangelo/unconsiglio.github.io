@@ -36,3 +36,12 @@ nav a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
+.gif-sopra-navbar {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Assicura che l'immagine sia sopra la navbar */
+    width: 15%;
+}
