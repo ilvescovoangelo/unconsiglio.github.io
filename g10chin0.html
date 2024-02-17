@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHE GUERRA SIA</title>
+  <style>
+    @font-face {
+    font-family: pixel;
+    src: url(fonts/PressStart2P-Regular.ttf);
+}
+
+    body {
+      font-family: pixel;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #ffa7a8;
+      color: white;
+
+    }
+
+    #game-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .target {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    #score {
+      position: absolute;
+      top: 2%; /* Modifica il margine superiore */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+  <div align="center" id="score">Punti: 0</div>
+
+  <script>
+    let score = 0;
+    const scoreDisplay = document.getElementById('score');
+
+    document.getElementById('game-container').addEventListener('click', function(event) {
+      const target = event.target;
+      if (target.classList.contains('target')) {
+        score++;
+        scoreDisplay.textContent = 'Punti: ' + score;
+        if (score === 50) {
+          window.location.href = 'loredana.html';
+        }
+        target.parentNode.removeChild(target);
+        createTarget();
+      }
+    });
+
+    function createTarget() {
+      const gameContainer = document.getElementById('game-container');
+      const target = document.createElement('img');
+      target.classList.add('target');
+      target.src = 'img/lussemburgo.png'; // Inserisci il percorso dell'immagine del bersaglio
+      const maxX = window.innerWidth - 100;
+      const maxY = window.innerHeight - 100;
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      target.style.left = randomX + 'px';
+      target.style.top = randomY + 'px';
+      gameContainer.appendChild(target);
+    }
+
+    // Creare i bersagli iniziali
+    for (let i = 0; i < 10; i++) {
+      createTarget();
+    }
+  </script>
+</body>
+</html>
