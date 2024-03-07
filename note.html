@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piano Virtuale</title>
+<style>
+    @font-face {
+        font-family: pixel;
+        src: url(fonts/PressStart2P-Regular.ttf);
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100vh;
+        margin: 0;
+        background-color: #ffa7a8;
+    }
+
+    #piano {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .piano-key {
+        position: relative;
+        display: inline-block;
+        width: 120px; /* Aumento della larghezza */
+        height: 350px; /* Aumento dell'altezza */
+        margin-right: 15px; /* Aumento del margine */
+        cursor: pointer;
+        font-size: 30px; /* Aumento della dimensione del carattere */
+        text-align: center;
+        background-color: #ffa7a8;
+        box-shadow: 0px 0px 0px 5px white;
+    }
+
+    .piano-key.active {
+        background-color: #c58182;
+        color: white;
+    }
+
+    .piano-key-text {
+        position: absolute;
+        top: -35px; /* Spostamento verso l'alto */
+        left: 50%; /* Allineamento orizzontale al centro */
+        transform: translateX(-50%); /* Centratura orizzontale */
+        color: white; /* Colore del testo */
+        font-family: pixel;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<div id="piano">
+    <div class="piano-key" data-note="do"><span class="piano-key-text">DO</span></div>
+    <div class="piano-key" data-note="re"><span class="piano-key-text">RE</span></div>
+    <div class="piano-key" data-note="mi"><span class="piano-key-text">MI</span></div>
+    <div class="piano-key" data-note="fa"><span class="piano-key-text">FA</span></div>
+    <div class="piano-key" data-note="sol"><span class="piano-key-text">SOL</span></div>
+    <div class="piano-key" data-note="la"><span class="piano-key-text">LA</span></div>
+    <div class="piano-key" data-note="si"><span class="piano-key-text">SI</span></div>
+    <div class="piano-key" data-note="batte"><span class="piano-key-text">BATTE</span></div>
+</div>
+
+<script>
+    // Variabile per memorizzare la sequenza attuale
+    var currentSequence = [];
+
+    // Sequenza da indovinare
+    var targetSequence = ["la", "fa", "re", "do", "mi", "batte"];
+
+    // Funzione per riprodurre il suono associato a ogni nota
+    function playSound(note) {
+        // Aggiungi la nota attuale alla sequenza corrente
+        currentSequence.push(note);
+
+        // Controlla se la sequenza corrente coincide con la sequenza desiderata
+        if (JSON.stringify(currentSequence) === JSON.stringify(targetSequence)) {
+            // Se la sequenza corrisponde, reindirizza alla pagina desiderata
+            window.location.href = "br4v4.html";
+        } else if (currentSequence.length >= targetSequence.length || currentSequence[currentSequence.length - 1] !== targetSequence[currentSequence.length - 1]) {
+            // Se la sequenza è più lunga della sequenza desiderata o se l'ultima nota è errata, resetta la sequenza corrente
+            currentSequence = [];
+        }
+    }
+
+    // Aggiungi event listener per i clic sui tasti
+    var keys = document.querySelectorAll('.piano-key');
+    keys.forEach(function(key) {
+        key.addEventListener('mousedown', function() {
+            var note = this.getAttribute('data-note');
+            playSound(note);
+            this.classList.add('active');
+        });
+
+        key.addEventListener('mouseup', function() {
+            this.classList.remove('active');
+        });
+
+        key.addEventListener('mouseleave', function() {
+            this.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>
