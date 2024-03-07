@@ -1,7 +1,99 @@
+<!DOCTYPE html>
 <html>
+<head>
     <title>BRAVISSIMA</title>
-    <link rel="stylesheet" href="stilante.css">
-    <body>
+    <style>
+        @font-face {
+            font-family: pixel;
+            src: url(fonts/PressStart2P-Regular.ttf);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Aggiunto per allineare verticalmente i contenuti */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffa7a8; /* Aggiunto uno sfondo grigio per visualizzare meglio la barra di ricerca */
+        }
+
+        .title-container {
+            text-align: center; /* Centra i titoli */
+            margin-bottom: 20px; /* Aggiunto spazio inferiore per separare il box delle email dai titoli */
+        }
+
+        h1 {
+            font-family: pixel;
+            color: white;
+            display: block; /* Imposta h1 come blocco */
+        }
+
+        h2 {
+            font-family: pixel;
+            color: white;
+            display: block; /* Imposta h2 come blocco */
+            margin-top: 10px; /* Aggiungi spazio sopra h2 per spostarlo sotto h1 */
+            text-align: center; /* Centra h2 */
+        }
+
+        .email-box {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border: 5px solid rgb(228, 226, 226); /* Aggiunge un bordo di colore rosa */
+            text-align: center; /* Centra il testo */
+        }
+
+        .email-input {
+            width: 300px;
+            height: 30px;
+            margin-bottom: 10px;
+            font-family: pixel; /* Imposta il font pixel per l'input email */
+            font-size: 11px; /* Imposta la dimensione del carattere */
+            text-align: center; /* Centra il testo all'interno dell'input */
+        }
+
+        .submit-button {
+            width: 150px;
+            height: 40px;
+            background-color: #ffa7a8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: pixel;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
         <h1>Vedo che stai migliorando</h1>
-    </body>
+        <h2>L'indizio è sempre più vicino</h2>
+    </div>
+
+    <div class="email-box">
+        <form onsubmit="submitEmail(event)">
+            <input type="email" class="email-input" id="emailInput" placeholder="Inserisci la tua email" required>
+            <br>
+            <button type="submit" class="submit-button">Invia</button>
+        </form>
+    </div>
+
+    <script>
+        function submitEmail(event) {
+            event.preventDefault(); // Evita il comportamento predefinito del form
+
+            // Cambia il testo dell'h1
+            document.querySelector("h1").innerText = "EMAIL INVIATA!";
+
+            // Rimuovi l'h2
+            var h2Element = document.querySelector("h2");
+            if (h2Element) {
+                h2Element.remove();
+            }
+        }
+    </script>
+</body>
 </html>
